@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.connection.ConnectionFragment">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/login_top_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/login_right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/login_left_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <ImageView
+        android:id="@+id/login_fragment_profile_picture"
+        android:layout_width="227dp"
+        android:layout_height="213dp"
+        android:contentDescription="@string/todo"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/login_top_guideline" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_fragment_nickname_wrapper"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_fragment_what_i_do_wrapper"
+        app:layout_constraintEnd_toStartOf="@+id/login_right_guideline"
+        app:layout_constraintStart_toStartOf="@+id/login_left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/login_fragment_profile_picture">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_fragment_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_your_nickname" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_fragment_what_i_do_wrapper"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/login_right_guideline"
+        app:layout_constraintStart_toStartOf="@+id/login_left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/login_fragment_nickname_wrapper"
+        tools:layout_editor_absoluteY="420dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_fragment_what_i_do"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/what_i_do" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/login_fragment_start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_fragment_what_i_do_wrapper"
+        style="@style/ChatMaterialUiButton"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
