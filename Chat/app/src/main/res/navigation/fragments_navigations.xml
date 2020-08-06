@@ -17,5 +17,13 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="ge.edu.freeuni.chat.ui.login.LoginFragment"
-        android:label="LoginFragment" />
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_messengerFragment"
+            app:destination="@id/messengerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messengerFragment"
+        android:name="ge.edu.freeuni.chat.ui.messenger.MessengerFragment"
+        android:label="MessengerFragment" />
 </navigation>
