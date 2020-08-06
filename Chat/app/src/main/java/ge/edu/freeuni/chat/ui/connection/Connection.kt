@@ -5,14 +5,13 @@ interface Connection {
     interface View {
 
         fun drawFailResponseMode()
-        fun navigateToLoginFragment();
-
+        fun navigateToLoginFragment()
+        fun drawWaitingForResponseMode()
     }
 
     interface Presenter {
 
-        fun onServerConnectionSuccess()
-        fun onServerConnectionFail()
+        fun checkChatServerConnection()
 
     }
 
