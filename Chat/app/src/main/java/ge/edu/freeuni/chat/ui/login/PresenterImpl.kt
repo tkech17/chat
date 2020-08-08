@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import ge.edu.freeuni.chat.server.chat.ChatService
 import ge.edu.freeuni.chat.server.chat.createChatService
-import ge.edu.freeuni.chat.server.model.user.User
+import ge.edu.freeuni.chat.server.model.user.LoginRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -18,7 +18,7 @@ class PresenterImpl(private val view: Login.View) : Login.Presenter {
         view.selectImage(context)
     }
 
-    override fun startChat(user: User) {
+    override fun startChat(loginRequest: LoginRequest) {
         view.drawWaitingForResponseMode()
 
         GlobalScope.launch(Dispatchers.Main) {

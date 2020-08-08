@@ -23,7 +23,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import ge.edu.freeuni.chat.App
 import ge.edu.freeuni.chat.R
-import ge.edu.freeuni.chat.server.model.user.User
+import ge.edu.freeuni.chat.server.model.user.LoginRequest
 import java.io.ByteArrayOutputStream
 import java.util.*
 
@@ -58,7 +58,7 @@ class LoginFragment : Fragment(), Login.View {
 
             val imageBase64 = getUserImageInBase64()
 
-            val user = User(
+            val user = LoginRequest(
                 userName = nickname.text.toString(),
                 whatToDo = whatIDo.text.toString(),
                 imageBase64 = imageBase64
