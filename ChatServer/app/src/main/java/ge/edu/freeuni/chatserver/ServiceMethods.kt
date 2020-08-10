@@ -6,5 +6,6 @@ object ServiceMethods {
     const val LOG_IN = "/login"
     const val CHAT: String = "/chat"
     const val CHAT_EXTENDED: String = "/chat-extended"
+    const val ADD_CHAT: String = "/add-chat"
 
 }

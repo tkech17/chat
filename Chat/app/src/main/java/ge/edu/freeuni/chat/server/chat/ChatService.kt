@@ -24,6 +24,9 @@ interface ChatService {
     @POST("/chat-extended")
     fun getUserChatExtended(@Body chatRequest: ChatRequest): Call<List<Chat>>
 
+    @POST("/add-chat")
+    fun addChat(@Body chat: Chat): Call<Chat>
+
 }
 
 private var chatService: ChatService? = null

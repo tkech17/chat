@@ -145,8 +145,8 @@ class MessengerFragment : Fragment(), Messenger.View {
         messagesRecyclerView.layoutManager = LinearLayoutManager(context)
     }
 
-    override fun openChatTo(conversation: Chat) {
-        findNavController().navigate(R.id.action_messengerFragment_to_chatFragment, bundleOf("data" to conversation, "user" to user))
+    override fun openChatTo(chat: Chat) {
+        findNavController().navigate(R.id.action_messengerFragment_to_chatFragment, bundleOf("data" to chat, "user" to user))
     }
 
 }
