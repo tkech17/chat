@@ -10,7 +10,7 @@ import ge.edu.freeuni.chatserver.database.entities.UserEntity
 interface UserDAO {
 
     @Insert(entity = UserEntity::class)
-    suspend fun save(user: UserEntity): UserEntity
+    suspend fun save(user: UserEntity)
 
     @Update
     suspend fun update(user: UserEntity)
