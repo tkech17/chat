@@ -5,7 +5,7 @@ import ge.edu.freeuni.chat.server.model.user.Chat
 interface Messenger {
 
     interface View {
-        fun openChatTo(conversation: Chat);
+        fun openChatTo(chat: Chat);
 
     }
 

@@ -4,7 +4,7 @@ import ge.edu.freeuni.chat.server.model.message.Message
 import java.io.Serializable
 
 data class Chat(
-    val id: String,
+    val id: Long,
     val user1: User,
     val user2: User,
     val lastMessage: Message?

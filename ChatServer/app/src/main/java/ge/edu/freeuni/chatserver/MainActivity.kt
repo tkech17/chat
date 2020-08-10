@@ -3,10 +3,7 @@ package ge.edu.freeuni.chatserver
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sun.net.httpserver.HttpServer
-import ge.edu.freeuni.chatserver.handlers.ExtendedChatHandler
-import ge.edu.freeuni.chatserver.handlers.UserChatHandler
-import ge.edu.freeuni.chatserver.handlers.LoginHandler
-import ge.edu.freeuni.chatserver.handlers.PingHandler
+import ge.edu.freeuni.chatserver.handlers.*
 import java.net.InetSocketAddress
 import java.util.concurrent.Executors
 
@@ -28,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         httpServer.createContext(ServiceMethods.LOG_IN, LoginHandler)
         httpServer.createContext(ServiceMethods.CHAT, UserChatHandler)
         httpServer.createContext(ServiceMethods.CHAT_EXTENDED, ExtendedChatHandler)
+        httpServer.createContext(ServiceMethods.ADD_CHAT, AddChatHandler)
 
         httpServer.start()
     }

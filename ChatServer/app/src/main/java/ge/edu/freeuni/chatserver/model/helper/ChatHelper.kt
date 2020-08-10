@@ -37,4 +37,12 @@ object ChatHelper {
         return res!!
     }
 
+    fun fromDTO(from: Chat): ChatEntity {
+        return ChatEntity(
+            id = from.id,
+            user11Id = from.user1.id,
+            user12Id = from.user2.id
+        )
+    }
+
 }
