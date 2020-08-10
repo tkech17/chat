@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import ge.edu.freeuni.chat.R
 import ge.edu.freeuni.chat.server.model.user.Chat
 import ge.edu.freeuni.chat.server.model.user.User
-import ge.edu.freeuni.chat.utils.BitMapUtils
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
