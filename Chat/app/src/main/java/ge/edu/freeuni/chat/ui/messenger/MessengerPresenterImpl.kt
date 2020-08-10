@@ -1,3 +1,11 @@
 package ge.edu.freeuni.chat.ui.messenger
 
-class MessengerPresenterImpl(private val presenter: Messenger.View) : Messenger.Presenter
+import ge.edu.freeuni.chat.server.model.user.Conversation
+
+class MessengerPresenterImpl(private val view: Messenger.View) : Messenger.Presenter {
+
+    override fun openChatTo(conversation: Conversation) {
+        view.openChatTo(conversation)
+    }
+
+}

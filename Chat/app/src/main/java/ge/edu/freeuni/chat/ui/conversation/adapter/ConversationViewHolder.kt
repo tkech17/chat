@@ -1,4 +1,4 @@
-package ge.edu.freeuni.chat.ui.messenger.adapter
+package ge.edu.freeuni.chat.ui.conversation.adapter
 
 import android.view.View
 import android.widget.ImageView
@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.ChronoUnit
 
-class MessageViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class ConversationViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
     private lateinit var conversation: Conversation
 

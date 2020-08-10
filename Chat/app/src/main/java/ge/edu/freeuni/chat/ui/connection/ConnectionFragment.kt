@@ -23,16 +23,17 @@ class ConnectionFragment : Fragment(), Connection.View {
     ): View? {
         val view: View = inflater.inflate(R.layout.connection_fragment, container, false)
 
+        val connectionPresenter = ConnectionPresenterImpl(this)
+
         connectionInfo = view.findViewById(R.id.connection_fragment_checking_connection)
         progressBar = view.findViewById(R.id.connection_fragment_indeterminate_progress_bar)
         connectButton = view.findViewById(R.id.connection_fragment_connect_button)
-        connectButton.setOnClickListener {  }
+        connectButton.setOnClickListener { connectionPresenter.checkChatServerConnection() }
 
-        val connectionPresenter = ConnectionPresenterImpl(this)
         connectionPresenter.checkChatServerConnection()
+
         return view
     }
-
 
 
     override fun drawWaitingForResponseMode() {
@@ -45,7 +46,7 @@ class ConnectionFragment : Fragment(), Connection.View {
         progressBar.visibility = View.INVISIBLE
         connectButton.visibility = View.VISIBLE
         connectionInfo.text = resources.getString(R.string.connection_failed)
-          }
+    }
 
     override fun navigateToLoginFragment() {
         findNavController()

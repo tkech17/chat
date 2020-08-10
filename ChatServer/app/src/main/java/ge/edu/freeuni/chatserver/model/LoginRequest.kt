@@ -1,4 +1,4 @@
-package ge.edu.freeuni.chat.server.model.user
+package ge.edu.freeuni.chatserver.model
 
 data class LoginRequest(
     val username: String,

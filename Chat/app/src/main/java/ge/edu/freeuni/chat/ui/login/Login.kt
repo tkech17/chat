@@ -2,6 +2,7 @@ package ge.edu.freeuni.chat.ui.login
 
 import android.content.Context
 import ge.edu.freeuni.chat.server.model.user.LoginRequest
+import ge.edu.freeuni.chat.server.model.user.User
 
 interface Login {
 
@@ -9,7 +10,7 @@ interface Login {
         fun selectImage(context: Context?)
         fun drawFailResponseMode()
         fun drawWaitingForResponseMode()
-        fun navigateToChatFragment()
+        fun navigateToChatFragment(user: User)
     }
 
     interface Presenter {
