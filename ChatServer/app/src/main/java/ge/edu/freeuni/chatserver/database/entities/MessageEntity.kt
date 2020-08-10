@@ -9,6 +9,7 @@ data class MessageEntity(
 
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0,
+    var chatId: Long,
     var src: Long,
     var dst: Long,
     var text: String,

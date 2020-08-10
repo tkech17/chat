@@ -3,7 +3,8 @@ package ge.edu.freeuni.chat.server.model.user
 import java.io.Serializable
 
 data class User(
-    val userName: String,
-    val whatToDo: String,
-    val imageBase64: String?
+    val id: Long,
+    val username: String,
+    val whatIDo: String,
+    val picture: String?
 ) : Serializable
