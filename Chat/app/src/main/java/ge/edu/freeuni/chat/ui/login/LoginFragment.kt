@@ -18,6 +18,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -67,7 +68,10 @@ class LoginFragment : Fragment(), Login.View {
                 imageBase64 = imageBase64
             )
 
-            presenter.startChat(user)
+            if (user.username.isNotBlank() && user.whatIDo.isNotBlank()) {
+                presenter.startChat(user)
+            }
+
         }
 
         return view

@@ -20,7 +20,7 @@ object LoginHandler : HttpHandler {
     override fun handle(exchange: HttpExchange) {
         when (exchange.requestMethod) {
             "POST" -> {
-                Log.i(PingHandler.javaClass.simpleName, "PING")
+                Log.i(PingHandler.javaClass.simpleName, "LOGIN")
 
                 GlobalScope.launch(Dispatchers.IO) {
                     val loginRequest: LoginRequest = exchangeToObject(exchange, LoginRequest::class.java)
@@ -28,13 +28,14 @@ object LoginHandler : HttpHandler {
                     var user: UserEntity? = userDao.getUserByUsername(loginRequest.username)
 
                     if (user == null) {
-                        user = userDao.save(
+                        userDao.save(
                             UserEntity(
                                 username = loginRequest.username,
                                 whatIDo = loginRequest.whatIDo,
                                 picture = loginRequest.imageBase64
                             )
                         )
+                        user = userDao.getUserByUsername(loginRequest.username)
                     }
 
                     sendResponse(exchange, Gson().toJson(user))
