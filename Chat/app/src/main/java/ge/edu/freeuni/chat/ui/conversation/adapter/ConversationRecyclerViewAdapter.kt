@@ -1,4 +1,4 @@
-package ge.edu.freeuni.chat.ui.messenger.adapter
+package ge.edu.freeuni.chat.ui.conversation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,22 +8,22 @@ import ge.edu.freeuni.chat.R
 import ge.edu.freeuni.chat.server.model.user.Conversation
 import ge.edu.freeuni.chat.ui.messenger.Messenger
 
-class MessagesRecyclerViewAdapter(private val presenter: Messenger.Presenter) : RecyclerView.Adapter<MessageViewHolder>() {
+class ConversationRecyclerViewAdapter(private val presenter: Messenger.Presenter) : RecyclerView.Adapter<ConversationViewHolder>() {
 
     private val conversations: MutableList<Conversation> = mutableListOf()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConversationViewHolder {
         val view: View = LayoutInflater
             .from(parent.context)
             .inflate(R.layout.message_item, parent, false)
 
-        return MessageViewHolder(view)
+        return ConversationViewHolder(view)
     }
         override fun getItemCount(): Int {
         return conversations.size
     }
 
-    override fun onBindViewHolder(holder: MessageViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ConversationViewHolder, position: Int) {
         println(position)
         val conversation: Conversation = conversations[position]
         holder.setData(conversation)

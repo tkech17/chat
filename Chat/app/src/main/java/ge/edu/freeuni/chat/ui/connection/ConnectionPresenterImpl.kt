@@ -23,18 +23,18 @@ class ConnectionPresenterImpl(private val connectionView: Connection.View) : Con
 
         val chatService: ChatService = createChatService()
 
-        chatService.get().enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
+        chatService.ping().enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 Log.i(this.javaClass.simpleName, "Successfully connected to chat server")
                 onServerConnectionSuccess()
             }
 
-            override fun onFailure(call: Call<String>, t: Throwable) {
+            override fun onFailure(call: Call<Void>, t: Throwable) {
                 Log.e(this.javaClass.simpleName, "Failed to connect chat server")
                 onServerConnectionFail()
-                onServerConnectionSuccess() //TODO remove
             }
         })
+
     }
     private fun onServerConnectionFail() {
         connectionView.drawFailResponseMode()

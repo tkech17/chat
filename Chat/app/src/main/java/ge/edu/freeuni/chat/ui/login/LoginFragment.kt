@@ -1,5 +1,6 @@
 package ge.edu.freeuni.chat.ui.login
 
+import android.annotation.SuppressLint
 import android.app.Activity.RESULT_CANCELED
 import android.app.Activity.RESULT_OK
 import android.app.AlertDialog
@@ -17,6 +18,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.button.MaterialButton
@@ -24,6 +26,7 @@ import com.google.android.material.textfield.TextInputEditText
 import ge.edu.freeuni.chat.App
 import ge.edu.freeuni.chat.R
 import ge.edu.freeuni.chat.server.model.user.LoginRequest
+import ge.edu.freeuni.chat.server.model.user.User
 import java.io.ByteArrayOutputStream
 import java.util.*
 
@@ -59,8 +62,8 @@ class LoginFragment : Fragment(), Login.View {
             val imageBase64 = getUserImageInBase64()
 
             val user = LoginRequest(
-                userName = nickname.text.toString(),
-                whatToDo = whatIDo.text.toString(),
+                username = nickname.text.toString(),
+                whatIDo = whatIDo.text.toString(),
                 imageBase64 = imageBase64
             )
 
@@ -82,6 +85,8 @@ class LoginFragment : Fragment(), Login.View {
         return Base64.getEncoder().encodeToString(imageInByte)
     }
 
+    @SuppressLint("Recycle")
+    @Suppress("DEPRECATION")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 
         if (resultCode != RESULT_CANCELED) {
@@ -150,9 +155,8 @@ class LoginFragment : Fragment(), Login.View {
         progressBar.visibility = View.VISIBLE
     }
 
-    override fun navigateToChatFragment() {
-        findNavController()
-            .navigate(R.id.action_loginFragment_to_messengerFragment)
+    override fun navigateToChatFragment(user: User) {
+        findNavController().navigate(R.id.action_loginFragment_to_messengerFragment, bundleOf("user" to user))
     }
 
 }
