@@ -6,9 +6,10 @@ import com.sun.net.httpserver.HttpExchange
 import com.sun.net.httpserver.HttpHandler
 import ge.edu.freeuni.chatserver.App
 import ge.edu.freeuni.chatserver.database.ChatServerDatabase
-import ge.edu.freeuni.chatserver.database.daos.UserDAO
+import ge.edu.freeuni.chatserver.database.dao.UserDAO
 import ge.edu.freeuni.chatserver.database.entities.UserEntity
 import ge.edu.freeuni.chatserver.model.LoginRequest
+import ge.edu.freeuni.chatserver.model.helper.UserHelper
 import ge.edu.freeuni.chatserver.utils.exchangeToObject
 import ge.edu.freeuni.chatserver.utils.sendResponse
 import kotlinx.coroutines.Dispatchers
@@ -38,7 +39,7 @@ object LoginHandler : HttpHandler {
                         user = userDao.getUserByUsername(loginRequest.username)
                     }
 
-                    sendResponse(exchange, Gson().toJson(user))
+                    sendResponse(exchange, Gson().toJson(UserHelper.toDTO(user!!)))
                 }
 
             }

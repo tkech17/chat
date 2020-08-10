@@ -49,8 +49,7 @@ class ConnectionFragment : Fragment(), Connection.View {
     }
 
     override fun navigateToLoginFragment() {
-        findNavController()
-            .navigate(R.id.action_connectionFragment_to_loginFragment)
+        findNavController().navigate(R.id.action_connectionFragment_to_loginFragment)
     }
 
 

@@ -9,6 +9,6 @@ data class ChatEntity(
 
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0,
-    var user11: Long,
-    var user12: Long
+    var user11Id: Long,
+    var user12Id: Long
 )
