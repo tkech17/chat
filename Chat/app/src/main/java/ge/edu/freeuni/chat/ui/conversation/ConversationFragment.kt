@@ -123,7 +123,7 @@ class ConversationFragment : Fragment(), Conversation.View {
             chatService.getMessages(chat).enqueue(object : Callback<List<Message>> {
                 override fun onResponse(call: Call<List<Message>>, response: Response<List<Message>>) {
                     Log.i(this.javaClass.simpleName, "Successfully got user messages")
-                    conversationRecyclerViewAdapter.setData(response.body()!!)
+                    conversationRecyclerViewAdapter.setData(response.body()!!.reversed())
                 }
 
                 override fun onFailure(call: Call<List<Message>>, t: Throwable) {
