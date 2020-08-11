@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ge.edu.freeuni.chat.R
 import ge.edu.freeuni.chat.server.model.user.Chat
 import ge.edu.freeuni.chat.server.model.user.User
+import ge.edu.freeuni.chat.utils.BitMapUtils
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,7 +36,7 @@ class MessageViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
         val to: User = conversation.getMessagingUser(currentUser.username)
 
         to.picture?.let {
-//            profilePicture.setImageBitmap(BitMapUtils.toBitMap(it))
+            profilePicture.setImageBitmap(BitMapUtils.toBitMap(it))
         }
     }
 

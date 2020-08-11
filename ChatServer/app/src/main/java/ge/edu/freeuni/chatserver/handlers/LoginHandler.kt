@@ -37,6 +37,10 @@ object LoginHandler : HttpHandler {
                             )
                         )
                         user = userDao.getUserByUsername(loginRequest.username)
+                    } else {
+                        user.picture = loginRequest.imageBase64
+                        user.whatIDo = loginRequest.whatIDo
+                        userDao.update(user)
                     }
 
                     sendResponse(exchange, Gson().toJson(UserHelper.toDTO(user!!)))

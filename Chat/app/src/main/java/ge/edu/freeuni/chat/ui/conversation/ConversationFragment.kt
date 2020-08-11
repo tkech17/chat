@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.imageview.ShapeableImageView
 import ge.edu.freeuni.chat.App
 import ge.edu.freeuni.chat.R
 import ge.edu.freeuni.chat.server.chat.ChatService
@@ -22,6 +23,7 @@ import ge.edu.freeuni.chat.server.model.message.Message
 import ge.edu.freeuni.chat.server.model.user.Chat
 import ge.edu.freeuni.chat.server.model.user.User
 import ge.edu.freeuni.chat.ui.conversation.adapter.ConversationRecyclerViewAdapter
+import ge.edu.freeuni.chat.utils.BitMapUtils
 import kotlinx.android.synthetic.main.conversation_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -68,6 +70,13 @@ class ConversationFragment : Fragment(), Conversation.View {
         newMessage = view.findViewById(R.id.conversation_fragment_edit_text)
 
         initAdapter(view)
+
+
+        val imageView: ShapeableImageView = view.findViewById(R.id.conversation_fragment_photo)
+
+        dstUser.picture?.let {
+            imageView.setImageBitmap(BitMapUtils.toBitMap(it))
+        }
 
         if (chat.id == 0L) {
             saveChat()
