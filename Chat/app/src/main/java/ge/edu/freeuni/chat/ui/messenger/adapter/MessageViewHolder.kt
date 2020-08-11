@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.RecyclerView
 import ge.edu.freeuni.chat.R
 import ge.edu.freeuni.chat.server.model.user.Chat
 import ge.edu.freeuni.chat.server.model.user.User
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MessageViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
@@ -41,11 +40,12 @@ class MessageViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
     }
 
     private fun getMessageDateText(): String? {
-        val messageDate: LocalDateTime = conversation.lastMessage?.date ?: return null
+        val messageDate: Date = conversation.lastMessage?.date ?: return null
 
-        val now: LocalDateTime = LocalDateTime.now()
+        val now = Date()
 
-        var minutesBeforeNow = messageDate.until(now, ChronoUnit.MINUTES)
+
+        var minutesBeforeNow = (now.time - messageDate.time) / (1_000 * 60)
 
         if (minutesBeforeNow < 60) {
             return "$minutesBeforeNow min"
@@ -56,8 +56,7 @@ class MessageViewHolder(private val view: View) : RecyclerView.ViewHolder(view) 
             return "$minutesBeforeNow hour"
         }
 
-        val pattern: DateTimeFormatter = DateTimeFormatter.ofPattern("dd/mm/yyyy")
-        return messageDate.format(pattern)
+        return SimpleDateFormat("dd/mm/yyyy", Locale.getDefault()).format(messageDate)
     }
 
 

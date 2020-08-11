@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         httpServer.createContext(ServiceMethods.CHAT, UserChatHandler)
         httpServer.createContext(ServiceMethods.CHAT_EXTENDED, ExtendedChatHandler)
         httpServer.createContext(ServiceMethods.ADD_CHAT, AddChatHandler)
+        httpServer.createContext(ServiceMethods.ADD_MESSAGE, AddMessageHandler)
+        httpServer.createContext(ServiceMethods.GET_MESSAGES, GetMessagesHandler)
 
         httpServer.start()
     }

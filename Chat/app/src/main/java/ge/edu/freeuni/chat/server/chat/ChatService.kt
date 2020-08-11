@@ -1,5 +1,6 @@
 package ge.edu.freeuni.chat.server.chat
 
+import ge.edu.freeuni.chat.server.model.message.Message
 import ge.edu.freeuni.chat.server.model.user.Chat
 import ge.edu.freeuni.chat.server.model.user.ChatRequest
 import ge.edu.freeuni.chat.server.model.user.LoginRequest
@@ -26,6 +27,12 @@ interface ChatService {
 
     @POST("/add-chat")
     fun addChat(@Body chat: Chat): Call<Chat>
+
+    @POST("/get-messages")
+    fun getMessages(@Body chat: Chat): Call<List<Message>>
+
+    @POST("/add-message")
+    fun addMessage(@Body message: Message): Call<String>
 
 }
 

@@ -21,6 +21,9 @@ interface UserDAO {
     @Query("SELECT * FROM UserEntity WHERE username == :usrName")
     suspend fun getUserByUsername(usrName: String): UserEntity?
 
+    @Query("SELECT * FROM UserEntity")
+    suspend fun getAll(): List<UserEntity>
+
     @Query("SELECT * FROM UserEntity WHERE username LIKE '%' || :usrName  || '%' AND username != :currentUser")
     suspend fun getUsersByUsername(usrName: String, currentUser: String): List<UserEntity>
 

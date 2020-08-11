@@ -14,6 +14,9 @@ interface ChatDAO {
     @Query("SELECT * FROM ChatEntity WHERE user11Id = :userId1 OR user12Id = :userId2")
     suspend fun getUsersChat(userId1: Long, userId2: Long): ChatEntity
 
+    @Query("SELECT * FROM ChatEntity WHERE user11Id = :userId1 OR user12Id = :userId2")
+    suspend fun getUsersChatOptional(userId1: Long, userId2: Long): ChatEntity?
+
     @Insert
     suspend fun save(chat: ChatEntity)
 

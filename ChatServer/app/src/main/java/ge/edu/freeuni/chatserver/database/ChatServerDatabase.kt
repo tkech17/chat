@@ -13,7 +13,7 @@ import ge.edu.freeuni.chatserver.database.entities.ChatEntity
 import ge.edu.freeuni.chatserver.database.entities.MessageEntity
 import ge.edu.freeuni.chatserver.database.entities.UserEntity
 
-@Database(entities = [ChatEntity::class, UserEntity::class, MessageEntity::class], version = 4, exportSchema = false)
+@Database(entities = [ChatEntity::class, UserEntity::class, MessageEntity::class], version = 7, exportSchema = false)
 @TypeConverters(value = [DateConverter::class])
 abstract class ChatServerDatabase : RoomDatabase() {
 
